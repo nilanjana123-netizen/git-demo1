@@ -17,14 +17,14 @@ pipeline {
 
         stage('Report') {
             steps {
-                publishHTML(target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'reports',
-                    reportFiles: 'extent-report.html',
-                    reportName: 'Test Report'
-                ])
+            publishHTML(target: [
+            allowMissing: true,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'test-output',
+            reportFiles: 'ExtentReport.html',
+            reportName: 'Test Report'
+        ])
             }
         }
     }
