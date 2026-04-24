@@ -1,31 +1,52 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+        jdk 'JDK17'
+    }
+
     stages {
 
-        stage('Build') {
+        stage('Checkout Code') {
             steps {
-                bat 'mvn clean compile'
+                git branch: 'main',
+                    url: 'https://github.com/nilanjana123-netizen/git-demo1.git'
             }
         }
 
-        stage('Test') {
+        stage('Build Main Framework') {
             steps {
-                bat 'mvn test'
+                bat 'mvn clean test'
             }
         }
 
-        stage('Report') {
+        stage('Build API Testing Project') {
             steps {
-            publishHTML(target: [
-            allowMissing: true,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'target',
-            reportFiles: 'ExtentReport.html',
-            reportName: 'Test Report'
-        ])
+                dir('api-testing-project') {
+                    bat 'mvn clean test'
+                }
             }
+        }
+
+        stage('Archive Reports') {
+            steps {
+                archiveArtifacts artifacts: '**/target/**/*.*', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'CI/CD Pipeline Completed Successfully'
+        }
+
+        success {
+            echo 'Build Passed Successfully'
+        }
+
+        failure {
+            echo 'Build Failed'
         }
     }
 }
