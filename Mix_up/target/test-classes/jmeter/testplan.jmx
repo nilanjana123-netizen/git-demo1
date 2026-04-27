@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0">
+    <hashTree>
+
+        <!-- Test Plan -->
+        <TestPlan guiclass="TestPlanGui"
+                  testclass="TestPlan"
+                  testname="OpenWeather Performance Test">
+
+            <stringProp name="TestPlan.comments">API Performance Test - 10 Virtual Users</stringProp>
+            <boolProp name="TestPlan.functional_mode">false</boolProp>
+            <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+
+        </TestPlan>
+
+        <hashTree>
+
+            <!-- Thread Group -->
+            <ThreadGroup guiclass="ThreadGroupGui"
+                         testclass="ThreadGroup"
+                         testname="10 Virtual Users">
+
+                <stringProp name="ThreadGroup.num_threads">10</stringProp>
+                <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+
+                <elementProp name="ThreadGroup.main_controller"
+                             elementType="LoopController">
+
+                    <boolProp name="LoopController.continue_forever">false</boolProp>
+                    <stringProp name="LoopController.loops">1</stringProp>
+
+                </elementProp>
+
+            </ThreadGroup>
+
+            <hashTree>
+
+                <!-- HTTP Request -->
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui"
+                                  testclass="HTTPSamplerProxy"
+                                  testname="Weather API Request">
+
+                    <!-- VERY IMPORTANT -->
+                    <stringProp name="HTTPSampler.protocol">https</stringProp>
+                    <stringProp name="HTTPSampler.domain">api.openweathermap.org</stringProp>
+                    <stringProp name="HTTPSampler.path">/data/2.5/weather</stringProp>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+
+                    <elementProp name="HTTPsampler.Arguments"
+                                 elementType="Arguments">
+
+                        <collectionProp name="Arguments.arguments">
+
+                            <!-- City -->
+                            <elementProp name="q"
+                                         elementType="HTTPArgument">
+                                <stringProp name="Argument.name">q</stringProp>
+                                <stringProp name="Argument.value">Mumbai</stringProp>
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+
+                            <!-- API Key -->
+                            <elementProp name="appid"
+                                         elementType="HTTPArgument">
+                                <stringProp name="Argument.name">appid</stringProp>
+                                <stringProp name="Argument.value">3d18ba2e474172e7338de8458a207ce6</stringProp>
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+
+                            <!-- Units -->
+                            <elementProp name="units"
+                                         elementType="HTTPArgument">
+                                <stringProp name="Argument.name">units</stringProp>
+                                <stringProp name="Argument.value">metric</stringProp>
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+
+                        </collectionProp>
+
+                    </elementProp>
+
+                </HTTPSamplerProxy>
+
+                <hashTree>
+
+                    <!-- Duration Assertion -->
+                    <DurationAssertion guiclass="DurationAssertionGui"
+                                       testclass="DurationAssertion"
+                                       testname="Response Time Threshold">
+
+                        <stringProp name="DurationAssertion.duration">5000</stringProp>
+
+                    </DurationAssertion>
+
+                    <hashTree/>
+
+                </hashTree>
+
+                <!-- Summary Report -->
+                <ResultCollector guiclass="SummaryReport"
+                                 testclass="ResultCollector"
+                                 testname="Summary Report">
+
+                    <stringProp name="filename">results.jtl</stringProp>
+
+                </ResultCollector>
+
+                <hashTree/>
+
+            </hashTree>
+
+        </hashTree>
+
+    </hashTree>
+</jmeterTestPlan>

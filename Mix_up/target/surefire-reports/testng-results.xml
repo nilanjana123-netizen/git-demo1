@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-04-27T11:01:32 IST" name="Surefire suite" finished-at="2026-04-27T11:01:57 IST" duration-ms="25219">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.cucumber.runner.TestRunner@3daa422a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-04-27T11:01:32 IST" name="Surefire test" finished-at="2026-04-27T11:01:57 IST" duration-ms="25219">
+      <class name="org.example.cucumber.runner.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.example.cucumber.runner.TestRunner@3daa422a]" started-at="2026-04-27T11:01:32 IST" name="setUpClass" finished-at="2026-04-27T11:01:32 IST" duration-ms="689" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@2becfd4c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.cucumber.runner.TestRunner@3daa422a]" started-at="2026-04-27T11:01:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-27T11:01:47 IST" duration-ms="14281" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["UI Testing - Click Maps Page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["OpenWeather Testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.cucumber.runner.TestRunner@3daa422a]" started-at="2026-04-27T11:01:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-27T11:01:54 IST" duration-ms="7667" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["UI Testing - Click Support Page"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["OpenWeather Testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.example.cucumber.runner.TestRunner@3daa422a]" started-at="2026-04-27T11:01:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-04-27T11:01:57 IST" duration-ms="2483" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["API Testing - Validate Weather API"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["OpenWeather Testing"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.example.cucumber.runner.TestRunner@3daa422a]" started-at="2026-04-27T11:01:57 IST" name="tearDownClass" finished-at="2026-04-27T11:01:57 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- org.example.cucumber.runner.TestRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
